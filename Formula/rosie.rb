@@ -5,19 +5,13 @@ class Rosie < Formula
   sha256 "2b6b022cbf814c0e6f87c27c262dadf604564e0bdc7c5dca596555b866f7c683"
   license "BSD-3-Clause"
 
-  depends_on "pkg-config" => :build
-  depends_on "curl"
-  depends_on "libarchive"
+  depends_on "rust" => :build
 
   def install
-    # Set PKG_CONFIG_PATH for keg-only libarchive
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
-
-    system "make", "release"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "cargo", "install", *std_cargo_args(path: ".")
   end
 
   test do
-    assert_match "rosie #{version}", shell_output("#{bin}/rosie --version")
+    assert_equal version.to_s, shell_output("#{bin}/rosie --version").strip
   end
 end
