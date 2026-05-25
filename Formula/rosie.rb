@@ -1,8 +1,8 @@
 class Rosie < Formula
   desc "A robot helper for agent skills"
   homepage "https://github.com/matthewp/rosie"
-  url "https://github.com/matthewp/rosie/archive/refs/tags/v0.7.4.tar.gz"
-  sha256 "532fb12599d3445a18dda8de543ab8b43ea13b11b5b8d7b237ae0b1cdc75512c"
+  url "https://github.com/matthewp/rosie/archive/refs/tags/v0.7.5.tar.gz"
+  sha256 "1b68dbbdaa29c8118f5b98ce82f134e9413df7640b275af4af841ede8d2391d5"
   license "BSD-3-Clause"
 
   depends_on "rust" => :build
